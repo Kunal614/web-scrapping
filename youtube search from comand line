@@ -1,0 +1,21 @@
+import requests
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+import webbrowser
+import sys
+print("youtube searching .....")
+res = requests.get('https://www.youtube.com/watch?'+ ' '.join(sys.argv[1:]))
+file1 = open('youtub.html','wb')
+for i in res.iter_content(100000):
+    file1.write(i)
+soup=BeautifulSoup(res.text,'lxml')
+ele = soup.select('a')  
+
+#print(ele[1].get('href'))
+
+k=min(5,len(ele))
+for i in range(1):
+    
+    webbrowser.open('https://www.youtube.com/' + ele[30].get('href'))
+   
+
