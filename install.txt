@@ -1,0 +1,17 @@
+For web scraping you must install the followings things 
+
+Beautifulsoup
+requests
+os
+fake-useragent
+
+How to install :: 
+
+In linux 
+    pip3 install beautifulsoup4
+    pip3 install requests
+    pip3 install os
+    pip3 install fake-useragent
+
+
+    
