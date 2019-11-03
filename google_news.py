@@ -10,7 +10,7 @@ def Times_of_India(url,ua,url1):
     soup = BeautifulSoup(res.content,'html.parser')
     data=soup.find_all(class_='w_tle')
     if len(data)>0:
-        print("Total news avaliable :: ",len(data))
+        print("News avaliable :","\N{slightly smiling face}")
     if len(data)==0:
         return 0
     print("\n")
@@ -34,12 +34,13 @@ def news_india(url, ua , url1):
     soup = BeautifulSoup(res.content,'html.parser')  
     data= soup.find_all(class_='field-content') 
     if len(data)>0:
-        print("\nTotal news avaliable :: ",len(data))
-       
+        print("\nNews avaliable : ","\N{slightly smiling face}")
+    k=0;  
     for i in range(len(data)):
         data1=data[i].find_all('a')
         for j in range(len(data1)):
-            print("\nNEWS ",i,end=" : ")
+            print("\nNEWS ",k+1,end=" : ")
+            k+=1
             print(data1[j].get_text())
             bol=input("\nFor more details ->(y) (y/n) :: ")
             if bol=='y' or bol == 'Y':
@@ -56,7 +57,7 @@ def news_india(url, ua , url1):
 
 url="https://timesofindia.indiatimes.com/india/"
 ua={"UserAgent":'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:69.0) Gecko/20100101 Firefox/69.0'}
-num=input("Enter the state name or city name to get news : ")
+num=input("Search any news (state , city ,Country , Things ,etc) : ")
 url+=num
 url1="https://timesofindia.indiatimes.com/india/"
 url2="https://www.indiatoday.in/topic/"
@@ -75,15 +76,21 @@ if say==1:
         print("Would you like to go for India's Today (y/n):: ","\N{thinking face}",end="  ")
         speak= input()
         if speak=='y':
-            news_india(url2,ua,url3)
+            length=news_india(url2,ua,url3)
+            if length==0:
+                print("Sorry No news","\N{expressionless face}")
+            else:
+                print("\nThank you","\U0001f600")   
         else:
             print("\nThank you","\U0001f600")    
 elif say ==2:
    length=news_india(url2,ua,url3)
    if length==0:
        print("Sorry No news")
+   else:
+        print("\nThank you","\U0001f600")       
 else:
-    print("Sorry")       
+    print("Sorry","\N{expressionless face}")       
 
 
     
