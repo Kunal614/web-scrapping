@@ -1,0 +1,5 @@
+This scrapping process could be done by the module scrapy.
+you have to install scrapy module for this.
+installation process  :--
+    *pip3 install scrapy
+    
